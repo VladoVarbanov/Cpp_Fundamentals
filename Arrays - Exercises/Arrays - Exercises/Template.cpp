@@ -2,8 +2,13 @@
 
 using namespace std;
 
+const int maxArraySize = 100;
+
 int main()
 {
-    return 0;
+	int arr[maxArraySize];
+	int arrSize;
+
+	return 0;
 }
 
