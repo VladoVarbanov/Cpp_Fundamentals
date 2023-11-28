@@ -2,41 +2,45 @@
 
 using namespace std;
 
+#define MAX_SIZE 100
+
+void printArray(int arr[], int size, string separator = " ")
+{
+	for (int cnt = 0; cnt < size; ++cnt)
+	{
+		cout << arr[cnt] << separator;
+	}
+	cout << endl;
+}
+
 int main()
 {
-	const int MAX_SIZE = 99;
-	int arrayTwo[MAX_SIZE] = {};
-	int arrayOne[MAX_SIZE] = {};
-	int actualSize;
-	cin >> actualSize;
 
-	for (int i = 0; i < actualSize; ++i)
-	{
-		int n1, n2;
-		cin >> n1 >> n2;
+	int n;
+	cin >> n;
 
-		if (i % 2 == 0)
-		{
-			arrayOne[i] = n1;
-			arrayTwo[i] = n2;
-		}
-		else
-		{
-			arrayOne[i] = n2;
-			arrayTwo[i] = n1;
-		}
-	}
-	for (int i = 0; i < actualSize; ++i)
-	{
-		cout << arrayOne[i] << " ";
-	}
-	cout << endl;
+	int arr1[MAX_SIZE], arr2[MAX_SIZE];
 
-	for (int i = 0; i < actualSize; ++i)
+	int* first = arr1;
+	int* second = arr2;
+
+	for (int cnt = 0; cnt < n; ++cnt)
 	{
-		cout << arrayTwo[i] << " ";
+		int a, b;
+		cin >> a >> b;
+
+		first[cnt] = a;
+		second[cnt] = b;
+
+		// swap first and second.
+		int* temp = first;
+		first = second;
+		second = temp;
 	}
-	cout << endl;
+
+	printArray(first, n);
+	printArray(second, n);
+
 	return 0;
 }
 
