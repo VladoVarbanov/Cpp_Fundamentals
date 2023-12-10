@@ -4,15 +4,6 @@ using namespace std;
 
 const int maxArraySize = 100;
 
-void printArray(int arr[], int size, string separator = " ")
-{
-	for (int cnt = 0; cnt < size; ++cnt)
-	{
-		cout << arr[cnt] << separator;
-	}
-	cout << endl;
-}
-
 void enterArray(int arr[], int& arrSize)
 {
 	cin >> arrSize;
@@ -29,10 +20,30 @@ void enterArray(int arr[], int& arrSize)
 	}
 }
 
+void magicNumbers(int num, int arr[], int arrSize, int magicSum)
+{
+	for (int j = num + 1; j < arrSize; ++j)
+	{
+		if (arr[num] + arr[j] == magicSum)
+		{
+			cout << arr[num] << ' ' << arr[j] << endl;
+		}
+	}
+}
+
 int main()
 {
 	int arr[maxArraySize];
 	int arrSize;
+	enterArray(arr, arrSize);
+
+	int magicSum;
+	cin >> magicSum;
+
+	for (int i = 0; i < arrSize; ++i)
+	{
+		magicNumbers(i, arr, arrSize, magicSum);
+	}
 
 	return 0;
 }

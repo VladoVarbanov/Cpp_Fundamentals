@@ -4,15 +4,6 @@ using namespace std;
 
 const int maxArraySize = 100;
 
-void printArray(int arr[], int size, string separator = " ")
-{
-	for (int cnt = 0; cnt < size; ++cnt)
-	{
-		cout << arr[cnt] << separator;
-	}
-	cout << endl;
-}
-
 void enterArray(int arr[], int& arrSize)
 {
 	cin >> arrSize;
@@ -33,7 +24,26 @@ int main()
 {
 	int arr[maxArraySize];
 	int arrSize;
+	enterArray(arr, arrSize);
+
+	bool isBig;
+	for (size_t i = 0; i < arrSize; ++i)
+	{
+		for (int j = i + 1; j <= arrSize; ++j)
+		{
+			if (arr[i] <= arr[j])
+			{
+				isBig = false;
+				break;
+			}
+			isBig = true;
+		}
+		if (isBig)
+		{
+			cout << arr[i] << ' ';
+		}
+	}
+	cout << endl;
 
 	return 0;
 }
-
