@@ -1,20 +1,62 @@
-// Solution_01.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+
+using namespace std;
+
+int checkVowels(char letter)
+{
+	bool isVowel = letter == 65 || letter == 69 || letter == 73 || letter == 79 || letter == 85 || letter == 89
+		|| letter == 97 || letter == 101 || letter == 105 || letter == 111 || letter == 117 || letter == 121;
+	if (isVowel)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+int checkNonVowels(char letter)
+{
+	bool isNonVowel = (letter >= 66 && letter <= 90) || (letter >= 98 && letter <= 122);
+
+	if (isNonVowel)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	int letterCount;
+	cin >> letterCount;
+	char letter;
+	int vowels = 0;
+	int nonVowels = 0;
+
+	for (int i = 0; i < letterCount; ++i)
+	{
+		cin >> letter;
+
+		if (checkVowels(letter))
+		{
+			vowels++;
+		}
+		else if (checkNonVowels(letter))
+		{
+			nonVowels++;
+
+		}
+
+
+	}
+
+	cout << vowels << " " << nonVowels << endl;
+
+	return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
